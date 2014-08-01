@@ -1,0 +1,6 @@
+---
+
+# Start on boot
+fail2ban_service_enabled: yes
+# Current state: started, stopped
+fail2ban_service_state: started
