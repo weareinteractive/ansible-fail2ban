@@ -1,6 +1,9 @@
 ---
+# For more information about handlers see:
+# http://www.ansibleworks.com/docs/playbooks.html#handlers-running-operations-on-change
+#
 
-# Start on boot
+# start on boot
 fail2ban_service_enabled: yes
-# Current state: started, stopped
+# current state: started, stopped
 fail2ban_service_state: started

@@ -1,17 +1,5 @@
 ---
 
-- name: Install packages
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - fail2ban
-  tags:
-    - system
-    - networking
-    - fail2ban
+- include: install.yml
+- include: configure.yml
 
-- name: Configure service
-  service: name=fail2ban state={{ fail2ban_service_state }} enabled={{ fail2ban_service_enabled }}
-  tags:
-    - system
-    - networking
-    - fail2ban

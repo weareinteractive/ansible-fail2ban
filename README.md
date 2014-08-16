@@ -1,7 +1,7 @@
 # Ansible Fail2ban Role
 
-[![Build Status](https://travis-ci.org/weareinteractive/ansible-role-fail2ban.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-role-fail2ban)
-[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-role-fail2ban.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-role-fail2ban)
+[![Build Status](https://travis-ci.org/weareinteractive/ansible-fail2ban.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-fail2ban)
+[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-fail2ban.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-fail2ban)
 
 > `fail2ban` is an [ansible](http://www.ansible.com) role which: 
 > 
@@ -24,7 +24,7 @@ $ arm install franklinkim.fail2ban
 Using `git`:
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-role-fail2ban.git
+$ git clone https://github.com/weareinteractive/ansible-fail2ban.git
 ```
 
 ## Variables
@@ -50,8 +50,8 @@ fail2ban_service_state: started
 ## Testing
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-role-fail2ban.git
-$ cd ansible-role-fail2ban
+$ git clone https://github.com/weareinteractive/ansible-fail2ban.git
+$ cd ansible-fail2ban
 $ vagrant up
 ```
 
