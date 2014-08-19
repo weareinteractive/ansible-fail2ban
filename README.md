@@ -29,12 +29,20 @@ $ git clone https://github.com/weareinteractive/ansible-fail2ban.git
 
 ## Variables
 
+Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
+
 ```
-# Start on boot
+# start on boot
 fail2ban_service_enabled: yes
-# Current state: started, stopped
+# current state: started, stopped
 fail2ban_service_state: started
 ```
+
+## Handlers
+
+These are the handlers that are defined in `handlers/main.yml`.
+
+* `restart fail2ban` 
 
 ## Example playbook
 
