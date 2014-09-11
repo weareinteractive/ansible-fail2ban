@@ -10,3 +10,12 @@
     - networking
     - fail2ban
     - config
+
+- name: Install custom configuration
+  when: fail2ban_configuration != ''
+  template: owner=root group=root mode=640
+    src={{ fail2ban_template }}
+    dest=/etc/fail2ban/jail.local
+  notify:
+    - restart fail2ban
+
