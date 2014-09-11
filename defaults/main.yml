@@ -7,3 +7,5 @@
 fail2ban_service_enabled: yes
 # current state: started, stopped
 fail2ban_service_state: started
+# Local jail template file to install
+fail2ban_jail_local:
