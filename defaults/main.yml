@@ -7,6 +7,5 @@
 fail2ban_service_enabled: yes
 # current state: started, stopped
 fail2ban_service_state: started
-# Configuration file to install, relative to ansible repository root (Must be a
-# valid template).
-fail2ban_configuration: ''
+# Local jail template file to install
+fail2ban_jail_local:

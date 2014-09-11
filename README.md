@@ -6,6 +6,8 @@
 > `fail2ban` is an [ansible](http://www.ansible.com) role which: 
 > 
 > * installs fail2ban
+> * configures local jail
+> * configures service
 
 ## Installation
 
@@ -36,6 +38,8 @@ Here is a list of all the default variables for this role, which are also availa
 fail2ban_service_enabled: yes
 # current state: started, stopped
 fail2ban_service_state: started
+# Local jail template file to install
+fail2ban_jail_local:
 ```
 
 ## Handlers
@@ -53,6 +57,23 @@ These are the handlers that are defined in `handlers/main.yml`.
   vars:
     fail2ban_service_state: started
     fail2ban_service_enabled: yes
+    fail2ban_jail_local: files/etc-fail2ban-jail.local.j2
+```
+
+With the `files/etc-fail2ban-jail.local.j2` i.e. looking like:
+
+```
+# {{ ansible_managed }}
+
+[ssh-iptables]
+#enabled  = false
+enabled  = true
+filter   = sshd
+action   = iptables[name=SSH, port=ssh, protocol=tcp]
+#          mail-whois[name=SSH, dest=yourmail@mail.com]
+#logpath  = /var/log/sshd.log
+logpath  = /var/log/auth.log
+maxretry = 5
 ```
 
 ## Testing
