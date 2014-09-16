@@ -8,5 +8,8 @@ fail2ban_service_enabled: yes
 # current state: started, stopped
 fail2ban_service_state: started
 # Configuration file to install, relative to ansible repository root (Must be a
-# valid template).
+# valid template) or 'template' (see next option).
 fail2ban_configuration: ''
+# If configuring jail.local using a list of services configure using this array.
+fail2ban_template_values: []
+

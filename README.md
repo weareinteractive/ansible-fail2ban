@@ -36,6 +36,11 @@ Here is a list of all the default variables for this role, which are also availa
 fail2ban_service_enabled: yes
 # current state: started, stopped
 fail2ban_service_state: started
+# Configuration file to install, relative to ansible repository root (Must be a
+# valid template) or 'template' (see next option).
+fail2ban_configuration: ''
+# If configuring jail.local using a list of services configure using this array.
+fail2ban_configuration_values: []
 ```
 
 ## Handlers
@@ -53,6 +58,9 @@ These are the handlers that are defined in `handlers/main.yml`.
   vars:
     fail2ban_service_state: started
     fail2ban_service_enabled: yes
+    fail2ban_configuration: 'template'
+    fail2ban_configuration_values:
+      - { name: 'ssh', port: '22', filter: 'ssh', logpath: '/var/log/auth.log', maxretry: '2' }
 ```
 
 ## Testing

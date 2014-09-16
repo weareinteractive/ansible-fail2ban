@@ -11,8 +11,17 @@
     - fail2ban
     - config
 
-- name: Install custom configuration
+- name: Install custom configuration from template
+  when: fail2ban_configuration == 'template'
+  template: owner=root group=root mode=640
+    src=etc-fail2ban-jail.local.j2
+    dest=/etc/fail2ban/jail.local
+  notify:
+    - restart fail2ban
+
+- name: Install custom configuration file
   when: fail2ban_configuration != ''
+  when: fail2ban_configuration != 'template'
   template: owner=root group=root mode=640
     src={{ fail2ban_template }}
     dest=/etc/fail2ban/jail.local
