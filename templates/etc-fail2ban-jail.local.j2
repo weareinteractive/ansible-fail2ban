@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+{% for item in fail2ban_configuration_values %}
+[ {{ item.name }} ]
+enabled = true
+port    = {{ item.port }}
+filter  = {{ item.filter }}
+logpath = {{ item.logpath }}
+maxretry = {{ item.maxretry |default('4') }}
+
+{% endfor %}
+
