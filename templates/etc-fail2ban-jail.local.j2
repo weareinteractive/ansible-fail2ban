@@ -1,0 +1,10 @@
+# {{ ansible_managed }}
+
+{% for section in fail2ban_jail|default({}) %}
+[{{ section }}]
+
+{% for option in fail2ban_jail[section] %}
+{{ option }} = {{ fail2ban_jail[section][option] }}
+{% endfor %}
+
+{% endfor %}

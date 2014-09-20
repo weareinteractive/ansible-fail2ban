@@ -6,7 +6,7 @@
 > `fail2ban` is an [ansible](http://www.ansible.com) role which: 
 > 
 > * installs fail2ban
-> * configures local jail
+> * configures jail.local
 > * configures service
 
 ## Installation
@@ -34,12 +34,24 @@ $ git clone https://github.com/weareinteractive/ansible-fail2ban.git
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
+# fail2ban_jail:
+#   ssh:
+#     enabled: true
+#     port: ssh
+#     filter: sshd
+#     logpath: /var/log/auth.log
+#     maxretry: 6
+# fail2ban_jail_template: templates/jail.local.j2
+# 
+
 # start on boot
 fail2ban_service_enabled: yes
 # current state: started, stopped
 fail2ban_service_state: started
-# Local jail template file to install
-fail2ban_jail_local:
+# jail.local config variables
+fail2ban_jail: {}
+# jail.local template to install, relative to the ansible repository root
+fail2ban_jail_template:
 ```
 
 ## Handlers
@@ -57,6 +69,7 @@ These are the handlers that are defined in `handlers/main.yml`.
   vars:
     fail2ban_service_state: started
     fail2ban_service_enabled: yes
+<<<<<<< HEAD
     fail2ban_jail_local: files/etc-fail2ban-jail.local.j2
 ```
 
@@ -74,6 +87,11 @@ action   = iptables[name=SSH, port=ssh, protocol=tcp]
 #logpath  = /var/log/sshd.log
 logpath  = /var/log/auth.log
 maxretry = 5
+=======
+    fail2ban_configuration: 'template'
+    fail2ban_configuration_values:
+      - { name: 'ssh', port: '22', filter: 'ssh', logpath: '/var/log/auth.log', maxretry: '2' }
+>>>>>>> ba8ff66f20ea1d566d2511a8c528dbdce3ee3a06
 ```
 
 ## Testing

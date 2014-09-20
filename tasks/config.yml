@@ -2,15 +2,15 @@
 
 - name: Configuring local jail
   template: >
-    src={{ fail2ban_jail_local }}
+    src={{ fail2ban_jail_template if fail2ban_jail_template else 'etc-fail2ban-jail.local.j2' }}
     dest=/etc/fail2ban/jail.local
     owner=root
     group=root
     mode=0640
-  when: fail2ban_jail_local
   notify: restart fail2ban
   tags:
     - system
     - networking
     - fail2ban
     - config
+

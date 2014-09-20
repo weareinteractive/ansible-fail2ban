@@ -6,3 +6,10 @@
   vars:
     fail2ban_service_state: started
     fail2ban_service_enabled: yes
+    fail2ban_jail:
+      ssh:
+        enabled: true
+        port: ssh
+        filter: sshd
+        logpath: /var/log/auth.log
+        maxretry: 6
