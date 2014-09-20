@@ -2,10 +2,21 @@
 # For more information about handlers see:
 # http://www.ansibleworks.com/docs/playbooks.html#handlers-running-operations-on-change
 #
+# fail2ban_jail:
+#   ssh:
+#     enabled: true
+#     port: ssh
+#     filter: sshd
+#     logpath: /var/log/auth.log
+#     maxretry: 6
+# fail2ban_jail_template: templates/jail.local.j2
+#
 
 # start on boot
 fail2ban_service_enabled: yes
 # current state: started, stopped
 fail2ban_service_state: started
-# Local jail template file to install
-fail2ban_jail_local:
+# jail.local config variables
+fail2ban_jail: {}
+# jail.local template to install, relative to the ansible repository root
+fail2ban_jail_template:
