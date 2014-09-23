@@ -69,7 +69,6 @@ These are the handlers that are defined in `handlers/main.yml`.
   vars:
     fail2ban_service_state: started
     fail2ban_service_enabled: yes
-<<<<<<< HEAD
     fail2ban_jail_local: files/etc-fail2ban-jail.local.j2
 ```
 
@@ -87,11 +86,6 @@ action   = iptables[name=SSH, port=ssh, protocol=tcp]
 #logpath  = /var/log/sshd.log
 logpath  = /var/log/auth.log
 maxretry = 5
-=======
-    fail2ban_configuration: 'template'
-    fail2ban_configuration_values:
-      - { name: 'ssh', port: '22', filter: 'ssh', logpath: '/var/log/auth.log', maxretry: '2' }
->>>>>>> ba8ff66f20ea1d566d2511a8c528dbdce3ee3a06
 ```
 
 ## Testing
